@@ -47,20 +47,26 @@ package com.example.demo.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Table(name = "employees")
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "employees")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int empid; // ✅ Primary Key (auto-generated)
+    private int empID;
 
-    private String name;
+    private String empName;
     private String email;
-
-    // ✅ Encrypted password will be stored using BCrypt
     private String password;
+    private String gender;
+
+    @Temporal(TemporalType.DATE)
+    private Date dob;
+
+    private String role;
 }
