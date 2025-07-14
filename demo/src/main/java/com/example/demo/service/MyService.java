@@ -76,10 +76,60 @@
 //}
 
 //Day 6
+//package com.example.demo.service;
+//
+//import com.example.demo.models.Employee;
+//import com.example.demo.repo.EmployeeRepo;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//import java.util.List;
+//
+//@Service
+//public class MyService {
+//
+//    @Autowired
+//    private EmployeeRepo employeeRepo;
+//
+//    // ✅ Welcome GET method
+//    public String getWelcomeMessage() {
+//        return "Get method called successfully";
+//    }
+//
+//    // ✅ POST method
+//    public String postMethod() {
+//        return "Post method called successfully";
+//    }
+//
+//    // ✅ PUT method
+//    public String putMethod() {
+//        return "Put method called";
+//    }
+//
+//    // ✅ DELETE method
+//    public String deleteMethod() {
+//        return "Delete method called";
+//    }
+//
+//    // ✅ Fetch all employees from DB
+//    public List<Employee> getAllEmployees() {
+//        return employeeRepo.findAll();
+//    }
+//
+//    // ✅ Add employee to DB
+//    public void addEmployee(Employee emp) {
+//        employeeRepo.save(emp);
+//    }
+//}
+
+
+//Day 6 Task
 package com.example.demo.service;
 
 import com.example.demo.models.Employee;
+import com.example.demo.models.Roles;
 import com.example.demo.repo.EmployeeRepo;
+import com.example.demo.repo.RolesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,33 +141,55 @@ public class MyService {
     @Autowired
     private EmployeeRepo employeeRepo;
 
-    // ✅ Welcome GET method
+    @Autowired
+    private RolesRepo rolesRepo;
+
+    // ✅ GET: Welcome message
     public String getWelcomeMessage() {
         return "Get method called successfully";
     }
 
-    // ✅ POST method
+    // ✅ POST: Generic message
     public String postMethod() {
         return "Post method called successfully";
     }
 
-    // ✅ PUT method
+    // ✅ PUT: Generic message
     public String putMethod() {
         return "Put method called";
     }
 
-    // ✅ DELETE method
+    // ✅ DELETE: Generic message
     public String deleteMethod() {
         return "Delete method called";
     }
 
-    // ✅ Fetch all employees from DB
+    // ✅ Get all employees from DB
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
 
-    // ✅ Add employee to DB
-    public void addEmployee(Employee emp) {
-        employeeRepo.save(emp);
+    // ✅ Add employee with specified role name (like "USER" or "ADMIN")
+    public void addEmployeeWithRole(Employee emp, String roleName) {
+        Roles role = rolesRepo.findByRoleName(roleName);
+        if (role != null) {
+            emp.setRole(role);
+            employeeRepo.save(emp);
+        } else {
+            throw new RuntimeException("Role not found: " + roleName);
+        }
+    }
+
+    // ✅ Get only users with USER role
+    public List<Employee> getAllUsersOnly() {
+        Roles userRole = rolesRepo.findByRoleName("USER");
+        return employeeRepo.findByRole(userRole);
+    }
+
+    // ✅ Get only admins
+    public List<Employee> getAllAdminsOnly() {
+        Roles adminRole = rolesRepo.findByRoleName("ADMIN");
+        return employeeRepo.findByRole(adminRole);
     }
 }
+

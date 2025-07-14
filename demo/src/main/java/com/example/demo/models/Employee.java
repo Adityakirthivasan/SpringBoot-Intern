@@ -73,6 +73,36 @@
 
 
 //Day 6
+//package com.example.demo.models;
+//
+//import jakarta.persistence.*;
+//import lombok.*;
+//
+//import java.util.Date;
+//
+//@Data // ✅ Generates all getters, setters, toString, etc.
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Entity
+//@Table(name = "employees")
+//public class Employee {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private int empID;
+//
+//    private String empName;
+//    private String email;
+//    private String password;
+//    private String gender;
+//
+//    @Temporal(TemporalType.DATE)
+//    private Date dob;
+//
+//    private String role;
+//}
+
+//Day 6 Task
 package com.example.demo.models;
 
 import jakarta.persistence.*;
@@ -80,7 +110,7 @@ import lombok.*;
 
 import java.util.Date;
 
-@Data // ✅ Generates all getters, setters, toString, etc.
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -99,6 +129,10 @@ public class Employee {
     @Temporal(TemporalType.DATE)
     private Date dob;
 
-    private String role;
+    // 🔗 Many employees can have the same role (ADMIN, USER, etc.)
+    @ManyToOne
+    @JoinColumn(name = "role_id") // foreign key in employees table
+    private Roles role;
 }
+
 
