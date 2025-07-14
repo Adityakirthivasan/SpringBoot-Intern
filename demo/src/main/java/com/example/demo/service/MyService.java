@@ -26,7 +26,7 @@
 //package com.example.demo.service;
 //
 //import com.example.demo.models.Employee;
-//// ✅ fixed import
+
 //import org.springframework.stereotype.Service;
 //
 //import java.util.ArrayList;
@@ -91,39 +91,40 @@
 //    @Autowired
 //    private EmployeeRepo employeeRepo;
 //
-//    // ✅ Welcome GET method
+
 //    public String getWelcomeMessage() {
 //        return "Get method called successfully";
 //    }
 //
-//    // ✅ POST method
+
 //    public String postMethod() {
 //        return "Post method called successfully";
 //    }
 //
-//    // ✅ PUT method
+
 //    public String putMethod() {
 //        return "Put method called";
 //    }
 //
-//    // ✅ DELETE method
+
 //    public String deleteMethod() {
 //        return "Delete method called";
 //    }
 //
-//    // ✅ Fetch all employees from DB
+
 //    public List<Employee> getAllEmployees() {
 //        return employeeRepo.findAll();
 //    }
 //
-//    // ✅ Add employee to DB
+
 //    public void addEmployee(Employee emp) {
 //        employeeRepo.save(emp);
 //    }
 //}
 
 
-//Day 6 Task
+
+//Day 10
 package com.example.demo.service;
 import com.example.demo.models.Employee;
 
@@ -156,12 +157,12 @@ public class MyService {
         return "Delete method called";
     }
 
-    // ✅ Fetch all employees
+
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
 
-    // ✅ Add new employee (needed for HelloWorld.java)
+
     public void addEmployee(Employee emp) {
         employeeRepo.save(emp);
     }

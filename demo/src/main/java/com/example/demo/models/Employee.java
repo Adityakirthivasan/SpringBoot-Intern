@@ -80,7 +80,7 @@
 ////
 ////import java.util.Date;
 ////
-////@Data // ✅ Generates all getters, setters, toString, etc.
+////@Data
 ////@AllArgsConstructor
 ////@NoArgsConstructor
 ////@Entity
@@ -190,6 +190,7 @@
 //
 
 //Day 7
+//Day 10
 package com.example.demo.models;
 
 import jakarta.persistence.*;
