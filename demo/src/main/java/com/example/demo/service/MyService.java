@@ -23,54 +23,101 @@
 
 
 //Day 3
+//package com.example.demo.service;
+//
+//import com.example.demo.models.Employee;
+//// ✅ fixed import
+//import org.springframework.stereotype.Service;
+//
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
+//
+//@Service
+//public class MyService {
+//
+//    // Initialize the employee list
+//    List<Employee> empList = new ArrayList<>(
+//            Arrays.asList(
+//                    new Employee(1, "Prasanth", "Trainer"),
+//                    new Employee(2, "Yuvaraj", "Faculty")
+//            )
+//    );
+//
+//    // POST method
+//    public String postMethod() {
+//        return "Post method called successfully";
+//    }
+//
+//    // GET method
+//    public String getWelcomeMessage() {
+//        return "Get method called successfully";
+//    }
+//
+//    // PUT method
+//    public String putMethod() {
+//        return "Put method called";
+//    }
+//
+//    // DELETE method
+//    public String deleteMethod() {
+//        return "Delete method called";
+//    }
+//
+//    // Get all employees
+//    public List<Employee> getAllEmployees() {
+//        return empList;
+//    }
+//
+//    // Add a new employee
+//    public void addEmployee(Employee emp) {
+//        empList.add(emp);
+//    }
+//}
+
+//Day 6
 package com.example.demo.service;
 
 import com.example.demo.models.Employee;
-// ✅ fixed import
+import com.example.demo.repo.EmployeeRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class MyService {
 
-    // Initialize the employee list
-    List<Employee> empList = new ArrayList<>(
-            Arrays.asList(
-                    new Employee(1, "Prasanth", "Trainer"),
-                    new Employee(2, "Yuvaraj", "Faculty")
-            )
-    );
+    @Autowired
+    private EmployeeRepo employeeRepo;
 
-    // POST method
-    public String postMethod() {
-        return "Post method called successfully";
-    }
-
-    // GET method
+    // ✅ Welcome GET method
     public String getWelcomeMessage() {
         return "Get method called successfully";
     }
 
-    // PUT method
+    // ✅ POST method
+    public String postMethod() {
+        return "Post method called successfully";
+    }
+
+    // ✅ PUT method
     public String putMethod() {
         return "Put method called";
     }
 
-    // DELETE method
+    // ✅ DELETE method
     public String deleteMethod() {
         return "Delete method called";
     }
 
-    // Get all employees
+    // ✅ Fetch all employees from DB
     public List<Employee> getAllEmployees() {
-        return empList;
+        return employeeRepo.findAll();
     }
 
-    // Add a new employee
+    // ✅ Add employee to DB
     public void addEmployee(Employee emp) {
-        empList.add(emp);
+        employeeRepo.save(emp);
     }
 }

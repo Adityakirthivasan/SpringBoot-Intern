@@ -42,6 +42,37 @@
 //}
 
 //Day5 Task
+//package com.example.demo.models;
+//
+//import jakarta.persistence.*;
+//import lombok.*;
+//
+//import java.util.Date;
+//
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Entity
+//@Table(name = "employees")
+//public class Employee {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private int empID;
+//
+//    private String empName;
+//    private String email;
+//    private String password;
+//    private String gender;
+//
+//    @Temporal(TemporalType.DATE)
+//    private Date dob;
+//
+//    private String role;
+//}
+
+
+//Day 6
 package com.example.demo.models;
 
 import jakarta.persistence.*;
@@ -49,7 +80,7 @@ import lombok.*;
 
 import java.util.Date;
 
-@Data
+@Data // ✅ Generates all getters, setters, toString, etc.
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -70,3 +101,4 @@ public class Employee {
 
     private String role;
 }
+
