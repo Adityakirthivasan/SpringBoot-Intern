@@ -1,5 +1,3 @@
-
-//updated day4
 package com.example.todotracker.controllers;
 
 import com.example.todotracker.models.Task;
@@ -18,21 +16,25 @@ public class TaskController {
         this.service = service;
     }
 
+    // Create Task
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return service.createTask(task);
     }
 
+    // Get All Tasks
     @GetMapping
     public List<Task> getAllTasks() {
         return service.getAllTasks();
     }
 
+    // Update Task Status
     @PutMapping("/{id}/status")
     public Task updateStatus(@PathVariable Long id, @RequestParam Task.Status status) {
         return service.updateStatus(id, status);
     }
 
+    // Delete Task
     @DeleteMapping("/{id}")
     public String deleteTask(@PathVariable Long id) {
         return service.deleteTask(id);
