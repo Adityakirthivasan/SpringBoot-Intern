@@ -79,7 +79,6 @@
 //        this.roleNames = roleNames;
 //    }
 //}
-
 package com.example.demo.models;
 
 import lombok.AllArgsConstructor;
@@ -99,4 +98,3 @@ public class UserDetailsDto {
     private String userName;
     private Set<String> roleNames;
 }
-
