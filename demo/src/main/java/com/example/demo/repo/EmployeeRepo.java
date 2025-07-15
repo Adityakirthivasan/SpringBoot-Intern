@@ -29,10 +29,10 @@
 //
 //EmployeeRepo extends JpaRepository<Employee, Integer> {
 //
-//    // 🔐 Used for login
+//    //  Used for login
 //    Employee findByEmail(String email);
 //
-//    // 👥 Find all employees by role
+//    //  Find all employees by role
 //    List<Employee> findByRole(Roles role);
 //}
 

@@ -116,55 +116,55 @@
 //Day 7
 
 //Day 10
-package com.example.demo.controllers;
-import com.example.demo.models.Employee;
-
-import com.example.demo.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-public class HelloWorld {
-
-    @Autowired
-    private EmployeeService employeeService;
-
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    @GetMapping("/")
-    public String route() {
-        return "Welcome to SpringBoot Security";
-    }
-
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    @GetMapping("/employee")
-    public List<Employee> getAllEmployees() {
-        return employeeService.getMethod();
-    }
-
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    @GetMapping("/employee/{empId}")
-    public Employee getEmployeeById(@PathVariable int empId) {
-        return employeeService.getEmployeeById(empId);
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/employee")
-    public String addEmployee(@RequestBody Employee employee) {
-        return employeeService.addEmployee(employee);
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/employee/{empId}")
-    public String updateEmployee(@PathVariable int empId) {
-        return employeeService.updateEmployee(empId);
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/employee/{empID}")
-    public String deleteEmployee(@PathVariable int empID) {
-        return employeeService.deleteEmployeeById(empID);
-    }
-}
+//package com.example.demo.controllers;
+//import com.example.demo.models.Employee;
+//
+//import com.example.demo.service.EmployeeService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//
+//@RestController
+//public class HelloWorld {
+//
+//    @Autowired
+//    private EmployeeService employeeService;
+//
+//    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+//    @GetMapping("/")
+//    public String route() {
+//        return "Welcome to SpringBoot Security";
+//    }
+//
+//    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+//    @GetMapping("/employee")
+//    public List<Employee> getAllEmployees() {
+//        return employeeService.getMethod();
+//    }
+//
+//    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+//    @GetMapping("/employee/{empId}")
+//    public Employee getEmployeeById(@PathVariable int empId) {
+//        return employeeService.getEmployeeById(empId);
+//    }
+//
+//    @PreAuthorize("hasRole('ADMIN')")
+//    @PostMapping("/employee")
+//    public String addEmployee(@RequestBody Employee employee) {
+//        return employeeService.addEmployee(employee);
+//    }
+//
+//    @PreAuthorize("hasRole('ADMIN')")
+//    @PutMapping("/employee/{empId}")
+//    public String updateEmployee(@PathVariable int empId) {
+//        return employeeService.updateEmployee(empId);
+//    }
+//
+//    @PreAuthorize("hasRole('ADMIN')")
+//    @DeleteMapping("/employee/{empID}")
+//    public String deleteEmployee(@PathVariable int empID) {
+//        return employeeService.deleteEmployeeById(empID);
+//    }
+//}

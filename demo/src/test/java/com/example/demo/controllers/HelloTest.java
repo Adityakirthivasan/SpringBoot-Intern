@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.controllers;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HelloTest {
 
     @Test
-    void testSayHello() {
+    public void testHelloTest() {
         Hello hello = new Hello();
-        String result = hello.sayHello();
-        assertEquals("hello", result);
+        String result = hello.helloTest();
+        assertEquals("Hello Test", result);
     }
 }

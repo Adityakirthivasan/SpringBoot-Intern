@@ -1,23 +1,9 @@
-//package com.example.demo.repo;
-//
-//import com.example.demo.models.Roles;
-//import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.stereotype.Repository;
-//
-//@Repository
-//public interface RolesRepo extends JpaRepository<Roles, Integer> {
-//    Roles findByRoleName(String role_Name);
-//}
-//Day 7
-//Day 10
-
 package com.example.demo.repo;
 
 import com.example.demo.models.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-@Repository
 public interface RolesRepo extends JpaRepository<Roles, Integer> {
-    Roles findByRoleName(String roleName);
+    Optional<Roles> findByRoleName(String roleName);
 }
