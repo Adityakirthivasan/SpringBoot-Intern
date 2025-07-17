@@ -19,7 +19,7 @@ public class EmployeeServiceTest {
     RegisterDetailsRepository registerDetailsRepository;
 
     @InjectMocks
-    EmployeeService employeeService;
+    EmployeeServiceImpl employeeService;
 
     @BeforeEach
     void setUp() {
@@ -27,11 +27,13 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    void testGetMethod() {
+    void testGetAllEmployees() {
         RegisterDetails emp1 = new RegisterDetails();
         RegisterDetails emp2 = new RegisterDetails();
+
         when(registerDetailsRepository.findAll()).thenReturn(Arrays.asList(emp1, emp2));
-        List<RegisterDetails> result = employeeService.getMethod();
+
+        List<RegisterDetails> result = employeeService.getAllEmployees();
         assertEquals(2, result.size());
     }
 }

@@ -53,7 +53,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-//Aditya K 23EC002
+
 import java.util.*;
 
 import static org.mockito.Mockito.when;
@@ -73,7 +73,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    void testGetMethod() {
+    void testGetAllEmployees() {
         RegisterDetails emp1 = new RegisterDetails();
         emp1.setEmpId(1);
         emp1.setName("Ak");
@@ -82,9 +82,9 @@ public class EmployeeControllerTest {
         emp2.setEmpId(2);
         emp2.setName("Ram");
 
-        when(employeeService.getMethod()).thenReturn(Arrays.asList(emp1, emp2));
+        when(employeeService.getAllEmployees()).thenReturn(Arrays.asList(emp1, emp2));
 
-        List<RegisterDetails> result = employeeController.getMethod();
+        List<RegisterDetails> result = employeeController.getAllEmployees();
         assertEquals(2, result.size());
     }
 
@@ -103,7 +103,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    void testPostMethod() {
+    void testAddEmployee() {
         RegisterDetails emp = new RegisterDetails();
         emp.setEmpId(10);
         emp.setName("David");
@@ -114,34 +114,36 @@ public class EmployeeControllerTest {
         String expected = "Employee Added Successfully";
         when(employeeService.addEmployee(emp)).thenReturn(expected);
 
-        String result = employeeController.postMethod(emp);
+        String result = employeeController.addEmployee(emp);
         assertEquals(expected, result);
     }
 
     @Test
-    void testPutMethod() {
+    void testUpdateEmployee() {
         int empId = 2;
+        RegisterDetails updatedEmp = new RegisterDetails();
+        updatedEmp.setEmpId(empId);
+        updatedEmp.setName("Updated Name");
+
         String expected = "Updated Successfully";
+        when(employeeService.updateEmployee(empId, updatedEmp)).thenReturn(expected);
 
-        when(employeeService.updateEmployee(empId)).thenReturn(expected);
-        String result = employeeController.putMethod(empId);
-
+        String result = employeeController.updateEmployee(empId, updatedEmp);
         assertEquals(expected, result);
     }
 
     @Test
-    void testDeleteMethod() {
+    void testDeleteEmployee() {
         int empId = 3;
         String expected = "Deleted Successfully";
-
         when(employeeService.deleteEmployeeById(empId)).thenReturn(expected);
-        String result = employeeController.deleteMethod(empId);
 
+        String result = employeeController.deleteEmployee(empId);
         assertEquals(expected, result);
     }
 
     @Test
-    void testRouteMethod() {
+    void testRoute() {
         String result = employeeController.route();
         assertEquals("Welcome to SpringBoot Security", result);
     }
